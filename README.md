@@ -16,11 +16,13 @@
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::substr('you spin me baby right round', -11, -6));
 ```
 
 **Результат:**
 ``` php
+<?php
 'right'
 ```	
 
@@ -29,11 +31,13 @@ var_dump(su::substr('you spin me baby right round', -11, -6));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::startsWith('you spin me baby right round', 'you spin'));
 ```
 
 **Результат:**
 ``` php
+<?php
 true
 ```
 
@@ -42,11 +46,13 @@ true
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::endsWith('you spin me baby right round', 'right'));
 ```
 
 **Результат:**
 ``` php
+<?php
 false
 ```
 
@@ -58,11 +64,13 @@ false
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::glue('/', '/home/' '/m4', true, true));
 ```
 
 **Результат:**
 ``` php
+<?php
 '/home/m4/'
 ```
 
@@ -73,11 +81,13 @@ var_dump(su::glue('/', '/home/' '/m4', true, true));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::shorten('you spin me baby right round', 11));
 ```
 
 **Результат:**
 ``` php
+<?php
 'you...ound'
 ```
 
@@ -86,11 +96,13 @@ var_dump(su::shorten('you spin me baby right round', 11));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::ucfirst('тест'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'Тест'
 ```
 
@@ -99,11 +111,13 @@ var_dump(su::ucfirst('тест'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::lcfirst('Тест'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'тест'
 ```
 
@@ -112,11 +126,13 @@ var_dump(su::lcfirst('Тест'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::ucwords('тест тест тест'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'Тест Тест Тест'
 ```
 
@@ -125,11 +141,13 @@ var_dump(su::ucwords('тест тест тест'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::ucwords('Тест Тест Тест'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'тест тест тест'
 ```
 
@@ -139,11 +157,13 @@ var_dump(su::ucwords('Тест Тест Тест'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::cutOnSpace('you spin me baby right round', 5));
 ```
 
 **Результат:**
 ``` php
+<?php
 'you spin...'
 ```
 
@@ -151,6 +171,7 @@ var_dump(su::cutOnSpace('you spin me baby right round', 5));
 Выбрать подходящую для числа $number словоформу из $cases.
 $cases имеет вид:
 ``` php
+<?php
 array(
   'штука',
   'штуки',
@@ -160,11 +181,13 @@ array(
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::caseForNumber(15, array('штука', 'штуки', 'штук')));
 ```
 
 **Результат:**
 ``` php
+<?php
 'штук'
 ```
 
@@ -173,11 +196,13 @@ var_dump(su::caseForNumber(15, array('штука', 'штуки', 'штук')));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::translit('циско'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'tsisko'
 ```
 
@@ -187,11 +212,13 @@ var_dump(su::translit('циско'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::fileSize(6667666));
 ```
 
 **Результат:**
 ``` php
+<?php
 '6.4 МБ'
 ```
 
@@ -201,11 +228,13 @@ var_dump(su::fileSize(6667666));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::fileName('Бухаем у Вована на даче!!.jpg'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'Buhaem-u-Vovana-na-dache.jpg'
 ```
 
@@ -222,11 +251,13 @@ var_dump(su::fileName('Бухаем у Вована на даче!!.jpg'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::isUrl('яндекс.рф/я-люблю-кириллические-домены'));
 ```
 
 **Результат:**
 ``` php
+<?php
 true
 ```
 
@@ -236,11 +267,13 @@ true
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::isEmail('дима@кремль.рф'));
 ```
 
 **Результат:**
 ``` php
+<?php
 true
 ```
 
@@ -250,11 +283,13 @@ true
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::isPhone('+7(916)666-66-66'));
 ```
 
 **Результат:**
 ``` php
+<?php
 true
 ```
 
@@ -265,11 +300,13 @@ true
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::normalizeUrl('яндекс.рф/я-люблю-кириллические-домены'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'http://яндекс.рф/я-люблю-кириллические-домены'
 ```
 
@@ -282,11 +319,13 @@ var_dump(su::normalizeUrl('яндекс.рф/я-люблю-кирилличес�
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::beautify('http://habrahabr.ru/post/146262/'));
 ```
 
 **Результат:**
 ``` php
+<?php
 'habrahabr.ru/pos...62/'
 ```
 
@@ -297,10 +336,12 @@ var_dump(su::beautify('http://habrahabr.ru/post/146262/'));
 
 **Пример:**
 ``` php
+<?php
 var_dump(su::parseUrls(''ya.ru/test@test. some.test@gmail.com test.ru'));
 ```
 
 **Результат:**
 ``` php
+<?php
 '<a href="http://ya.ru/test@test">ya.ru/test@test</a>. some.test@gmail.com <a href="http://test.ru">test.ru</a>'
 ```
