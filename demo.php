@@ -117,7 +117,8 @@ function outputMethod($class, $method, $args) {
 				)); ?>
 				
 				<?php outputMethod('su', 'beautifyUrl', array(
-						's' => 'http://www.ya.ru/',
+						's' => 'http://habrahabr.ru/post/146262/',
+						'len' => 10,
 				)); ?>
 				
 				<?php outputMethod('su', 'parseUrls', array(
