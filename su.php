@@ -1,6 +1,4 @@
 <?php
-/* $Id: su.php 6 2012-05-10 12:48:32Z m4 $ */
-
 final class su {
 	
 	protected static $sizeSuffixes = array(

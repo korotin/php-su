@@ -1,6 +1,4 @@
 <?php
-/* $Id: demo.php 6 2012-05-10 12:48:32Z m4 $ */
-
 require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'su.php';
 mb_internal_encoding('UTF-8');
 
@@ -65,19 +63,19 @@ function outputMethod($class, $method, $args) {
 				)); ?>
 				
 				<?php outputMethod('su', 'ucfirst', array(
-						's' => 'кокаин',
+						's' => 'тест',
 				)); ?>
 				
 				<?php outputMethod('su', 'lcfirst', array(
-						's' => 'Кокаин',
+						's' => 'тест',
 				)); ?>
 				
 				<?php outputMethod('su', 'ucwords', array(
-						's' => 'кокаин кокаин кокаинушка',
+						's' => 'тест тест тест',
 				)); ?>
 				
 				<?php outputMethod('su', 'lcwords', array(
-						's' => 'Кокаин Кокаин Кокаинушка',
+						's' => 'Тест Тест Тест',
 				)); ?>
 				
 				<?php outputMethod('su', 'cutOnSpace', array(
@@ -123,7 +121,7 @@ function outputMethod($class, $method, $args) {
 				)); ?>
 				
 				<?php outputMethod('su', 'parseUrls', array(
-						's' => 'ya.ru/test@test. herr.offizier@gmail.com test.ru',
+						's' => 'ya.ru/test@test. some.test@gmail.com test.ru',
 				)); ?>
 			</tbody>
 		</table>
