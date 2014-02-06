@@ -10,22 +10,6 @@
 
 # Возможности
 
-## su::substr($s, $start [, $len = null])
-Получить подстроку строки $s.
-В отличии от встроенной функции аргументы $start и $len могут быть отрицательными, что означает отсчёт символов от конца исходной строки.
-
-**Пример:**
-``` php
-<?php
-var_dump(su::substr('you spin me baby right round', -11, -6));
-```
-
-**Результат:**
-``` php
-<?php
-'right'
-```	
-
 ## su::startsWith($s, $p)
 Проверить, начинается ли строка $s с подстроки $p.
 
@@ -337,7 +321,7 @@ var_dump(su::beautify('http://habrahabr.ru/post/146262/'));
 **Пример:**
 ``` php
 <?php
-var_dump(su::parseUrls(''ya.ru/test@test. some.test@gmail.com test.ru'));
+var_dump(su::parseUrls('ya.ru/test@test. some.test@gmail.com test.ru'));
 ```
 
 **Результат:**

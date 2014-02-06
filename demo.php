@@ -33,12 +33,6 @@ function outputMethod($class, $method, $args) {
 				</tr>
 			</thead>
 			<tbody>
-				<?php outputMethod('su', 'substr', array(
-						's' => 'you spin me baby right round', 
-						'start' => -11, 
-						'end' => -6,
-				)); ?>
-				
 				<?php outputMethod('su', 'startsWith', array(
 						's' => 'you spin me baby right round', 
 						'p' => 'you spin',
