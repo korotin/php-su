@@ -150,24 +150,53 @@ final class su
     }
 
     /**
+     * Находится ли строка в нижнем регистре.
+     *     
+     * @param  string  $s
+     * @return boolean
+     */
+    public static function isLowercase($s)
+    {
+        return mb_strtolower($s) === $s;
+    }
+
+    /**
+     * Находится ли строка в верхнем регистре.
+     * 
+     * @param  string  $s 
+     * @return boolean
+     */
+    public static function isUppercase($s)
+    {
+        return mb_strtoupper($s) === $s;
+    }
+
+    /**
      * Привести первый символ строки к верхнему регистру.
      *
      * @param  string $s
+     * @param  bool[optional] $ifNotLowercase
      * @return string
      */
-    public static function ucfirst($s)
+    public static function ucfirst($s, $ifNotLowercase = false)
     {
+        if ($ifNotLowercase && self::isLowercase($s)) return $s;
         return mb_strtoupper(mb_substr($s, 0, 1)).mb_substr($s, 1);
     }
 
     /**
      * Привести первый символ строки к нижнему регистру.
+     * Флаг $ifNotUppercase нужен для того, чтобы не переводить первый символ
+     * в нижний регистр, если вся строка находится в верхнем.
+     * По умолчанию $ifNotUpperspace = false.
      *
      * @param  string $s
+     * @param  bool[optional] $ifNotUppercase
      * @return string
      */
-    public static function lcfirst($s)
+    public static function lcfirst($s, $ifNotUppercase = false)
     {
+        if ($ifNotUppercase && self::isUppercase($s)) return $s;
         return mb_strtolower(mb_substr($s, 0, 1)).mb_substr($s, 1);
     }
 
@@ -175,24 +204,30 @@ final class su
      * Привести к верхнему регистру первый символ каждого слова в строке.
      *
      * @param  string $s
+     * @param  integer[optional] $limit
+     * @param  bool[optional] $ifNotLowercase
      * @return string
      */
-    public static function ucwords($s)
+    public static function ucwords($s, $limit = -1, $ifNotLowercase = false)
     {
-        return preg_replace_callback('/\w+/u', function ($matches) { return su::ucfirst($matches[0]); }, $s);
+        return preg_replace_callback('/\w+/u', function ($matches) use ($ifNotLowercase) { 
+            return su::ucfirst($matches[0], $ifNotLowercase); 
+        }, $s, $limit);
     }
 
     /**
      * Привести к нижнему регистру первый символ каждого слова в строке.
      *
      * @param  string $s
+     * @param  integer[optional] $limit
+     * @param  bool[optional] $ifNotUppercase
      * @return string
      */
-    public static function lcwords($s)
+    public static function lcwords($s, $limit = -1, $ifNotUppercase = false)
     {
-        return preg_replace_callback('/\w+/u', function ($matches) {
-            return su::lcfirst($matches[0]);
-        }, $s);
+        return preg_replace_callback('/\w+/u', function ($matches) use ($ifNotUppercase) {
+            return su::lcfirst($matches[0], $ifNotUppercase);
+        }, $s, $limit);
     }
 
     /**
