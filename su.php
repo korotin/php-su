@@ -26,6 +26,27 @@ final class su
             'ПБ',
     );
 
+    protected static $intervalSuffixes = array(
+        'd' => 86400,
+        'h' => 3600,
+        'm' => 60,
+        's' => 1,
+    );
+
+    protected static $intervalSuffixFullNames = array(
+        'd' => array(' день', ' дня', ' дней'),
+        'h' => array(' час', ' часа', ' часов'),
+        'm' => array(' минута', ' минуты', ' минут'),
+        's' => array(' секунда', ' секунды', ' секунд'),
+    );
+
+    protected static $intervalSuffixShortNames = array(
+        'd' => 'д',
+        'h' => 'ч',
+        'm' => 'м',
+        's' => 'с',
+    );
+
     protected static $translitParsed = false;
     protected static $translit = array(
             'а' => 'a',
@@ -345,6 +366,37 @@ final class su
                 array('-', ''),
                 self::translit($s)
             );
+    }
+
+    /**
+     * Получить человекопонятное представление интервала в секундах.
+     * Представление может быть в двух видах - полном (1 час 3 минуты 5 секунд)
+     * или сокращённом (1ч 3м 5с).
+     * По умолчанию используется первый вариант.
+     * 
+     * @param  int  $interval
+     * @param  boolean[optional] $short
+     * @return string
+     */
+    public static function duration($interval, $short = false)
+    {
+        $names = 
+            $short 
+                ? self::$intervalSuffixShortNames 
+                : self::$intervalSuffixFullNames;
+
+        $result = array();
+        foreach (self::$intervalSuffixes as $index => $size) {
+            if ($interval < $size) continue;
+
+            $name = $names[$index];
+            $left = $interval % $size;
+            $current = ($interval - $left) / $size;
+            $result[] = $current.(is_array($name) ? self::caseForNumber($current, $name) : $name);
+            $interval = $left;
+        }
+
+        return implode(' ', $result);
     }
 
     /**
